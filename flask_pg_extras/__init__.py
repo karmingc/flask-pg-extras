@@ -30,6 +30,8 @@ def db_execute_results(db, q):
     """
     result = db.engine.execute(text(q))
 
-    print(tabulate([row for row in result], headers=result.keys()))
+    r_tuples = result.fetchall()
+
+    print(tabulate([list(r) for r in r_tuples], headers=result.keys()))
 
     return result

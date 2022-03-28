@@ -30,8 +30,10 @@ def db_execute_results(db, q):
     """
     result = db.engine.execute(text(q))
 
-    r_tuples = result.fetchall()
+    result_fetchall = result.fetchall()
 
-    print(tabulate([list(r) for r in r_tuples], headers=result.keys()))
+    #random commit
+
+    print(tabulate([list(r) for r in result_fetchall], headers=result.keys()))
 
     return result
